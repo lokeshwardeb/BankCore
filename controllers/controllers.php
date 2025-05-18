@@ -188,6 +188,71 @@ class controllers extends models
         }
     }
 
+    // check if the email is exists into the software
+    public function is_email_exists($table_name, $table_row_name, $table_value_name){
+        $check_data = $this->get_data_where("$table_name", "`$table_row_name` = '$table_value_name'");
+
+        if($check_data->num_rows > 0){
+            return true;
+        }else{
+            return false;
+        }
+
+    }
+
+    public function add_new_customer(){
+        if(isset($_POST['add_new_customer'])){
+            $cus_name = $this->pure_data($_POST['cus_name']);
+            $cus_email = $this->pure_data($_POST['cus_email']);
+            $cus_phone = $this->pure_data($_POST['cus_phone']);
+            
+            if($cus_name == '' || $cus_email == '' || $cus_phone == ''){
+                echo '
+                    <script>
+                        danger_alert("Error !!", "Please fillup all the information !!");
+                    </script>
+                ';
+                return;
+            }
+
+            // check if the email already exists or not
+            $check_email = $this->is_email_exists("customers", "cus_email", "$cus_email");
+
+            if($check_email){
+                // that means the user is already exists and it should through an error
+                echo '
+                    <script>
+                        danger_alert("Error !!", "The submitted email already exists !!");
+                    </script>
+                ';
+
+                return;
+            }
+
+            // now continue the process
+            $add_cus = $this->insert("customers", " `cus_name`, `cus_email`, `cus_phone` ", " '$cus_name', '$cus_email', '$cus_phone' ");
+
+            if($add_cus){
+                // that means the customer has been inserted successfully
+                echo '
+                    <script>
+                        success_alert("Success !!", "The customer has beed added successfully !!");
+                    </script>
+                ';
+
+            }else{
+                // that means there was sonmething error
+                echo '
+                    <script>
+                        danger_alert("Error !!", "There was something error while adding the customer into the software !!");
+                    </script>
+                ';
+            }
+
+
+        }
+    }
+
 
     
 

@@ -1,110 +1,69 @@
-   <!-- sidebar_section starts here -->
-   <div class="sidebar_section mb-4">
-                        <div class="container" id="side_section">
-                            <div class="mb-3 mt-4 p-4 profile_link_section">
-                                <a href="" class="nav-link profile_link"> <img src="" class="img-fluid rounded-circle bg-secondary profile_img" alt=" "> Lokeshwar Deb</a>
-                            </div>
+<div class="flex-shrink-0 p-3" style="width: 280px;"> <a href="/"
+        class="d-flex align-items-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom"> <svg
+            class="bi pe-none me-2" width="30" height="24" aria-hidden="true">
+            <use xlink:href="#bootstrap"></use>
+        </svg> <span class="fs-5 fw-semibold text-dark">Banking</span> <span class="fs-5 fw-semibold">Core</span> </a>
+    <ul class="list-unstyled ps-0">
 
-                            <div class="menu_content text-center">
-                                <div class="mb-3 mt-4 menu_hover ps-4 pe-4">
-                                    <a href="" class="nav-link  d-flex">
-                                        <div class="content hover_menu d-flex">
-                                            <img src="/assets/img/news.png" id="menu_news" class="img-fluid hover_menu" alt=" ">
-                                            <div class="menu_news menu_hover m-auto p-5 pt-2 ">News</div>
-                                        </div>
+        <li class="mb-1"> <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
+                Dashboard
+            </button>
+            <div class="collapse" id="dashboard-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Overview</a>
+                    </li>
+                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Weekly</a>
+                    </li>
+                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Monthly</a>
+                    </li>
+                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Annually</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li class="mb-1"> <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
+                Customer Management
+            </button>
+            <div class="collapse" id="orders-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li><a href="/add_new_customer" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Add New Customer</a></li>
+                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Manage Customers</a>
+                    </li>
+                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Verify Customer KYC</a>
+                    </li>
+                    <!-- <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Shipped</a>
+                    </li>
+                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Returned</a>
+                    </li> -->
+                </ul>
+            </div>
+        </li>
+        <li class="border-top my-3"></li>
+        
+        
+        <li class="mb-1"> <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
+                Account
+            </button>
+            
+            <div class="collapse" id="account-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">New...</a>
+                    </li>
+                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Profile</a>
+                    </li>
+                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Settings</a>
+                    </li>
+                    <li><a href="/logout" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Log
+                            out</a></li>
+                </ul>
+            </div>
+        </li>
 
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="menu_content text-center">
-                                <div class="mb-3 mt-4 menu_hover ps-4 pe-4">
-                                    <a href="" class="nav-link  d-flex">
-                                        <div class="content hover_menu d-flex">
-                                            <img src="/assets/img/promotion.png" id="menu_news" class="img-fluid hover_menu" alt=" ">
-                                            <div class="menu_news menu_hover m-auto p-5 pt-2">Announcement</div>
-                                        </div>
-
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="menu_content text-center">
-                                <div class="mb-3 mt-4 menu_hover ps-4 pe-4">
-                                    <a href="" class="nav-link  d-flex">
-                                        <div class="content hover_menu d-flex">
-                                            <img src="/assets/img/worker (1).png" id="menu_news" class="img-fluid hover_menu" alt=" ">
-                                            <div class="menu_news menu_hover m-auto p-5 pt-2">Study</div>
-                                        </div>
-
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="menu_content text-center">
-                                <div class="mb-3 mt-4 menu_hover ps-4 pe-4">
-                                    <a href="" class="nav-link  d-flex">
-                                        <div class="content hover_menu d-flex">
-                                            <img src="/assets/img/assignment.png" id="menu_news" class="img-fluid hover_menu" alt=" ">
-                                            <div class="menu_news menu_hover m-auto p-5 pt-2">Assignments</div>
-                                        </div>
-
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="menu_content text-center">
-                                <div class="mb-3 mt-4 menu_hover ps-4 pe-4">
-                                    <a href="" class="nav-link  d-flex">
-                                        <div class="content hover_menu d-flex">
-                                            <img src="/assets/img/worker.png" id="menu_news" class="img-fluid hover_menu" alt=" ">
-                                            <div class="menu_news menu_hover m-auto p-5 pt-2">Class Shedule</div>
-                                        </div>
-
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="menu_content text-center">
-                                <div class="mb-3 mt-4 menu_hover ps-4 pe-4">
-                                    <a href="" class="nav-link  d-flex">
-                                        <div class="content hover_menu d-flex">
-                                            <img src="/assets/img/audience.png" id="menu_news" class="img-fluid hover_menu" alt=" ">
-                                            <div class="menu_news menu_hover m-auto p-5 pt-2">Department</div>
-                                        </div>
-
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="menu_content text-center">
-                                <div class="mb-3 mt-4 menu_hover ps-4 pe-4">
-                                    <a href="" class="nav-link  d-flex">
-                                        <div class="content hover_menu d-flex">
-                                            <img src="/assets/img/university2.png" id="menu_news" class="img-fluid hover_menu" alt=" ">
-                                            <div class="menu_news menu_hover m-auto p-5 pt-2">Exams</div>
-                                        </div>
-
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="menu_content text-center">
-                                <div class="mb-3 mt-4 menu_hover ps-4 pe-4">
-                                    <a href="" class="nav-link  d-flex">
-                                        <div class="content hover_menu d-flex">
-                                            <img src="/assets/img/cogwheel.png" id="menu_news" class="img-fluid hover_menu" alt=" ">
-                                            <div class="menu_news menu_hover m-auto p-5 pt-2">Settings</div>
-                                        </div>
-
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="menu_content text-center">
-                                <div class="mb-5 pb-5 mt-4 menu_hover ps-4 pe-4">
-                                    <a href="/logout" class="nav-link  d-flex">
-                                        <div class="content hover_menu d-flex mb-5 pb-4">
-                                            <img src="/assets/img/logout.png" id="menu_news" class="img-fluid hover_menu" alt=" ">
-                                            <div class="menu_news menu_hover m-auto p-5 pt-2">Logout</div>
-                                        </div>
-
-                                    </a>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <!-- sidebar_section ends here -->
+        <li class="mb-1 mt-4">
+            <div class="username text-primary fw-bold p-4 pt-0 pb-3"><?php echo $_SESSION['admin_username'] ?></div>
+        </li>
+    </ul>
+</div>

@@ -73,3 +73,12 @@ body{
     border-bottom: 2px solid black;
     outline: none;
   }
+
+    .hover_table{
+    transition: 500ms linear;
+  }
+  .hover_table:hover{
+    transition: 300ms linear;
+    background-color: #0D6EFD !important;
+    color: white !important;
+  }

@@ -10,8 +10,11 @@ $Routes = [
 
     "/" => __DIR__ . "/views/pages/view.login.php",
     "/login" => __DIR__ . "/views/pages/view.login.php",
+    "/logout" => __DIR__ . "/views/pages/view.logout.php",
     "/admin_register" => __DIR__ . "/views/pages/view.admin_register.php",
     "/dashboard" => __DIR__ . "/views/pages/view.dashboard.php",
+    "/add_new_customer" => __DIR__ . "/views/pages/view.add_new_customer.php",
+    "/manage_customers" => __DIR__ . "/views/pages/view.manage_customers.php",
 
 
     // "/" => __DIR__ . "/views/pages/view.login.php",
