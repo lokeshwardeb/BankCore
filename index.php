@@ -8,8 +8,14 @@ $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 // register routes
 $Routes = [
 
-    "/" => __DIR__ . "/views/pages/views.form.php",
-    "/form" => __DIR__ . "/views/pages/views.form.php",
+    "/" => __DIR__ . "/views/pages/view.login.php",
+    "/login" => __DIR__ . "/views/pages/view.login.php",
+    "/admin_register" => __DIR__ . "/views/pages/view.admin_register.php",
+    "/dashboard" => __DIR__ . "/views/pages/view.dashboard.php",
+
+
+    // "/" => __DIR__ . "/views/pages/view.login.php",
+
     
 
 ];

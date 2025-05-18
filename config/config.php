@@ -14,7 +14,7 @@ class database {
         $this->hostname = "localhost";
         $this->db_username = "root";
         $this->db_password = "";
-        $this->db_name = "uob_club_form";
+        $this->db_name = "bank_core";
 
         $conn = new mysqli($this->hostname, $this->db_username, $this->db_password, $this->db_name);
 
