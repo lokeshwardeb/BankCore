@@ -1,0 +1,75 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap'); */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Libre+Baskerville&family=Playfair+Display&family=Roboto:wght@400;500;700&display=swap');
+
+
+/* font-family: 'Inter', sans-serif;
+font-family: 'Libre Baskerville', serif;
+font-family: 'Playfair Display', serif;
+font-family: 'Roboto', sans-serif; */
+
+
+.inter_font{
+    font-family: 'Inter', sans-serif;
+}
+
+.libre_font{
+    font-family: 'Libre Baskerville', serif;
+}
+
+.playfair_font{
+    font-family: 'Playfair Display', serif;
+}
+
+.roboto_font{
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    background-color: #ddd;
+}
+.page {
+
+    background-color: white;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .form_section{
+    width: 100vw !important;
+  }
+
+  .interested_input{
+    width: 60%;
+    border: none; 
+    border-bottom: 2px solid black; 
+    outline: none; 
+  }
+
+  /* .interested_input{
+    border: none !important;
+    outline: ;
+  }
+  .interested_input:enabled{
+    border: none !important;
+  } */
+
+  table{
+    border: 1px solid black;
+    width: 50%;
+  }
+  /* th{
+    border: 1px solid black;
+  } */
+
+  tr{
+    border: 1px solid black;
+  }
+
+  td{
+    border: 1px solid black;
+  }
+  .sign_section_input{
+    border: none;
+    border-bottom: 2px solid black;
+    outline: none;
+  }
