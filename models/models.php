@@ -7,6 +7,11 @@ require_once __DIR__ . '/../controllers/controllers.php';
 
 class models extends database{
 
+   public function make_query($sql){
+      $result = $this->connect()->query($sql);
+      return $result;
+   }
+
      public function insert($table_name, $table_rows, $table_rows_values){
 
         $sql = "INSERT INTO `$table_name`($table_rows) VALUES ($table_rows_values)";

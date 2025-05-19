@@ -141,6 +141,7 @@ class controllers extends models
                         if(password_verify($password, $get_db_pass)){
                             // that means the password is verified and the user is loggedin
                             $_SESSION['loggedin_status'] = true;
+                            $_SESSION['admin_user_id'] = $row['user_id'];
                             $_SESSION['admin_username'] = $row['username'];
                             $_SESSION['admin_email'] = $row['admin_email'];
 
@@ -252,14 +253,37 @@ class controllers extends models
 
         }
     }
-    public function generate_unique_account_number() {
+//     public function generate_unique_account_number() {
+//     do {
+//         $account_number = uniqid("AC_", true);
+//         $check = $this->get_data_where("accounts", " `account_number` = '$account_number' ");
+//     } while ($check && $check->num_rows > 0);
+
+//     return $account_number;
+// }
+
+
+public function generate_unique_account_number() {
     do {
-        $account_number = uniqid("AC_", true);
-        $check = $this->get_data_where("accounts", " `account_number` = '$account_number' ");
+        // Fixed bank prefix (e.g., '1022'), branch (e.g., '0100')
+        $prefix = "10220100"; // 8 digits
+
+        // Generate a 6-digit unique part (could be random or user-based)
+        $unique_part = str_pad((string)random_int(0, 999999), 6, "0", STR_PAD_LEFT);
+
+        // Optional checksum (e.g., last 2 digits random or hash-based)
+        $checksum = str_pad((string)random_int(0, 99), 2, "0", STR_PAD_LEFT);
+
+        // Final account number: 8 (prefix) + 6 (unique) + 2 (checksum) = 16 digits
+        $account_number = $prefix . $unique_part . $checksum;
+
+        // Check uniqueness in DB
+        $check = $this->get_data_where("accounts", "`account_number` = '$account_number'");
     } while ($check && $check->num_rows > 0);
 
     return $account_number;
 }
+
 
 
 public function create_new_account() {
@@ -492,6 +516,344 @@ public function close_ac(){
 
         }
     }
+
+    public function enter_deposit_interface(){
+        if(isset($_POST['enter_deposit_interface'])){
+            $ac_number = $this->pure_data($_POST['ac_number']);
+
+            if($ac_number == ''){
+                echo '
+                    <script>
+                        danger_alert("Error !!", "Please enter the account number !!");
+                    </script>
+                ';
+                return;
+            }
+
+            $get_current_admin_user_id = $_SESSION['admin_user_id'];
+
+            // now continue the process
+            // now enter into the deposit interface and create a session
+            $generate_uid = uniqid("depo_session_", true);
+            // $make_depo_session = 'ad_user_' . $get_current_admin_user_id . '_' . $generate_uid;
+            $make_depo_session = 'depo_session_ac_number_'. $ac_number . '_ad_user_' . $get_current_admin_user_id;
+
+            $depo_session_name = 'deposit_session_ad_user_' . $get_current_admin_user_id;
+            $_SESSION[$depo_session_name] = $make_depo_session;
+            
+            $depo_ad_user_session = 'deposit_session_ad_user_' . $get_current_admin_user_id;
+
+            // $_SESSION[$depo_ad_user_session] = 
+
+            echo '
+                <script>
+                    window.location.href="/deposit_interface?get_ac_number='. $ac_number .'&ad_user='. $get_current_admin_user_id .'";
+                </script>
+            ';
+
+        }
+    }
+
+    
+
+    public function deposit($account_number, $cus_id, $amount, $description = '') {
+    // $account_number = $this->pure_data($account_number);
+    $amount = floatval($amount);
+
+    if ($amount <= 0) return false;
+
+    // Update balance
+    $this->make_query("UPDATE accounts SET balance = balance + $amount WHERE `account_number` = '$account_number' AND `status` = 'active'");
+
+    // Insert transaction
+    $ref = uniqid("TXN_", true);
+    $inset_depo = $this->insert("transactions", 
+        "`reference_id`, `account_number`, `customer_id`,  `transaction_type`, `amount`, `remarks`, `status`, `transaction_date`",
+        "'$ref', '$account_number', '$cus_id', 'deposit', '$amount', '$description', 'success', 'NOW()'"
+    );
+
+    if($inset_depo){
+        return true;
+    }else{
+        return false;
+    }
+
+
+
+    // $this->insert("transactions", 
+    //     "`reference_id`, `account_number`, `type`, `amount`, `description`, `status`, `created_at`",
+    //     "'$ref', '$account_number', 'deposit', '$amount', '$description', 'success', NOW()'"
+    // );
+}
+
+public function make_deposit(){
+    if(isset($_POST['make_deposit'])){
+        $ac_number = $this->pure_data($_POST['ac_number']);
+        $cus_id = $this->pure_data($_POST['cus_id']);
+        $depo_amount = $this->pure_data($_POST['depo_amount']);
+
+        $depo = $this->deposit($ac_number, $cus_id, $depo_amount);
+
+        if($depo){
+            echo '
+                <script>
+                    success_alert("Success !!", "The money has been deposited successfully !!");
+                </script>
+            ';
+        }else{
+            echo '
+                <script>
+                    danger_alert("Error !!", "There has been something error while depositing the money into the account !!");
+                </script>
+            ';
+        }
+
+    }
+}
+
+
+
+// the withdraw process
+
+public function enter_withdraw_interface() {
+    if (isset($_POST['enter_withdraw_interface'])) {
+        $ac_number = $this->pure_data($_POST['ac_number']);
+
+        if ($ac_number == '') {
+            echo '
+                <script>
+                    danger_alert("Error !!", "Please enter the account number !!");
+                </script>
+            ';
+            return;
+        }
+
+        $get_current_admin_user_id = $_SESSION['admin_user_id'];
+
+        // Generate unique session name
+        $generate_uid = uniqid("withdraw_session_", true);
+        $make_withdraw_session = 'withdraw_session_ac_number_' . $ac_number . '_ad_user_' . $get_current_admin_user_id;
+
+        $withdraw_session_name = 'withdraw_session_ad_user_' . $get_current_admin_user_id;
+        $_SESSION[$withdraw_session_name] = $make_withdraw_session;
+
+        // Redirect to withdraw interface with parameters
+        echo '
+            <script>
+                window.location.href="/withdraw_interface?get_ac_number=' . $ac_number . '&ad_user=' . $get_current_admin_user_id . '";
+            </script>
+        ';
+    }
+}
+
+
+
+public function withdraw($account_number, $cus_id, $amount, $description = '') {
+    $amount = floatval($amount);
+
+    if ($amount <= 0) return false;
+
+    // Check if account has sufficient balance
+    $check_balance_query = $this->get_data_where("accounts", "`account_number` = '$account_number' AND `status` = 'active'");
+    
+    if (!$check_balance_query || $check_balance_query->num_rows == 0) return false;
+
+    $account = $check_balance_query->fetch_assoc();
+
+    if ($account['balance'] < $amount) {
+        echo '
+            <script>
+                danger_alert("Error !!", "Insufficient balance to perform withdrawal.");
+            </script>
+        ';
+        return false;
+    }
+
+    // Deduct balance
+    $this->make_query("UPDATE accounts SET balance = balance - $amount WHERE `account_number` = '$account_number'");
+
+    // Insert transaction
+    $ref = uniqid("TXN_", true);
+    $insert_withdraw = $this->insert("transactions", 
+        "`reference_id`, `account_number`, `customer_id`, `transaction_type`, `amount`, `remarks`, `status`, `transaction_date`",
+        "'$ref', '$account_number', '$cus_id', 'withdraw', '$amount', '$description', 'success', 'NOW()'"
+    );
+
+    // return $insert_withdraw ? true : false;
+
+    if($insert_withdraw){
+        return true;
+    }else{
+        return false;
+    }
+
+}
+
+
+public function make_withdraw() {
+    if (isset($_POST['make_withdraw'])) {
+        $ac_number = $this->pure_data($_POST['ac_number']);
+        $cus_id = $this->pure_data($_POST['cus_id']);
+        $withdraw_amount = $this->pure_data($_POST['withdraw_amount']);
+
+        $withdraw = $this->withdraw($ac_number, $cus_id, $withdraw_amount);
+
+        if ($withdraw) {
+            echo '
+                <script>
+                    success_alert("Success !!", "The money has been withdrawn successfully !!");
+                </script>
+            ';
+        } else {
+            echo '
+                <script>
+                    danger_alert("Error !!", "There has been an error while withdrawing the money from the account !!");
+                </script>
+            ';
+        }
+    }
+}
+
+
+// the transfer process
+
+public function enter_transfer_interface() {
+    if (isset($_POST['enter_transfer_interface'])) {
+        $ac_number = $this->pure_data($_POST['ac_number']);
+
+        if ($ac_number == '') {
+            echo '
+                <script>
+                    danger_alert("Error !!", "Please enter the account number !!");
+                </script>
+            ';
+            return;
+        }
+
+        $get_current_admin_user_id = $_SESSION['admin_user_id'];
+
+        $make_transfer_session = 'transfer_session_ac_number_' . $ac_number . '_ad_user_' . $get_current_admin_user_id;
+
+        $transfer_session_name = 'transfer_session_ad_user_' . $get_current_admin_user_id;
+        $_SESSION[$transfer_session_name] = $make_transfer_session;
+
+        echo '
+            <script>
+                window.location.href="/transfer_interface?get_ac_number=' . $ac_number . '&ad_user=' . $get_current_admin_user_id . '";
+            </script>
+        ';
+    }
+}
+
+// public function get_to_cus_id(){
+
+// }
+
+
+public function transfer($from_ac, $to_ac, $from_cus_id, $to_cus_id, $amount, $description = '') {
+    $amount = floatval($amount);
+
+    if ($amount <= 0) return false;
+
+    // Check if source and destination accounts are valid and active
+    $from_check = $this->get_data_where("accounts", "`account_number` = '$from_ac' AND `status` = 'active'");
+    $to_check = $this->get_data_where("accounts", "`account_number` = '$to_ac' AND `status` = 'active'");
+
+    if (!$from_check || !$to_check || $from_check->num_rows == 0 || $to_check->num_rows == 0) {
+        return false;
+    }
+
+    // Check if source account has enough balance
+    $from_data = $from_check->fetch_assoc();
+    if ($from_data['balance'] < $amount) {
+        return false;
+    }
+
+    // Deduct from sender
+    $this->make_query("UPDATE accounts SET balance = balance - $amount WHERE `account_number` = '$from_ac'");
+
+    // Add to receiver
+    $this->make_query("UPDATE accounts SET balance = balance + $amount WHERE `account_number` = '$to_ac'");
+
+    // Insert transaction log
+    $ref = uniqid("TXN_", true);
+
+    $this->insert("transactions", 
+        "`reference_id`, `account_number`, `customer_id`, `transaction_type`, `amount`, `remarks`, `status`, `transaction_date`",
+        "'$ref', '$from_ac', '$from_cus_id', 'transfer_to_$to_ac', '$amount', '$description', 'success', 'NOW()'"
+    );
+
+    // Optional: Insert a reverse log for recipient
+    $this->insert("transactions", 
+        "`reference_id`, `account_number`, `customer_id`, `transaction_type`, `amount`, `remarks`, `status`, `transaction_date`",
+        "'$ref', '$to_ac', '$to_cus_id', 'transfer_from_$from_ac', '$amount', '$description', 'success', 'NOW()'"
+    );
+
+    return true;
+}
+
+
+public function make_transfer() {
+    if (isset($_POST['make_transfer'])) {
+        $from_ac = $this->pure_data($_POST['from_ac']);
+        $to_ac = $this->pure_data($_POST['to_ac']);
+        $from_cus_id = $this->pure_data($_POST['cus_id']);
+        $amount = $this->pure_data($_POST['amount']);
+        // $description = $this->pure_data($_POST['description']);
+
+        // check if all the information are submitted
+        if($to_ac == ''){
+            echo '
+                <script>
+                    danger_alert("Error !!", "Please enter the reciver account number !!");
+                </script>
+            ';
+            return;
+        }
+
+        if($amount == ''){
+            echo '
+                <script>
+                    danger_alert("Error !!", "Please enter the amount you want to transfer !!");
+                </script>
+            ';
+            return;
+        }
+
+        // find the to cus_id
+
+        $get_to_cus_id = $this->get_data_where("accounts", " `account_number` = '$to_ac' ");
+
+        if($get_to_cus_id){
+            if($get_to_cus_id->num_rows > 0){
+                while($row_to_cus_id = $get_to_cus_id->fetch_assoc()){
+                    $to_cus_id = $row_to_cus_id['cus_id'];
+                }
+            }else{
+                $to_cus_id = '';
+            }
+        }
+
+
+
+        $transfer = $this->transfer($from_ac, $to_ac, $from_cus_id, $to_cus_id, $amount);
+
+        if ($transfer) {
+            echo '
+                <script>
+                    success_alert("Success !!", "The money has been transferred successfully.");
+                </script>
+            ';
+        } else {
+            echo '
+                <script>
+                    danger_alert("Error !!", "Transfer failed. Please check account numbers, balance, or status.");
+                </script>
+            ';
+        }
+    }
+}
+
 
 
     

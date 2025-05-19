@@ -53,9 +53,10 @@ require_once __DIR__ . '/inc/_header.php';
                                                         <thead>
                                                             <tr>
                                                                 <th scope="col">#</th>
-                                                                <th scope="col">Employee name</th>
-                                                                <th scope="col">Age</th>
+                                                                <th scope="col">Customer name</th>
+                                                                <th scope="col">Email</th>
                                                                 <th scope="col">Mobile No</th>
+                                                                <th scope="col">Action</th>
                                                                 <th scope="col">Action</th>
                                                             
                                                             </tr>
@@ -82,7 +83,13 @@ require_once __DIR__ . '/inc/_header.php';
                                                                                     
                                                                                     <a href="edit_customer?get_cus_id='. $row_cus_data['cus_id'] .'"> <button class="btn btn-success" >Edit</button></a>
 
-                                                                                    <form action="" method="post">
+                                                                                    
+                                                                                    
+                                                                                    
+                                                                                    </td>
+
+                                                                                    <td>
+                                                                                        <form action="" method="post">
                                                                                         <input type="hidden" name="delete_get_cus_id" value="'. $row_cus_data['cus_id'] .'">
 
                                                                                         <button name="delete_customer" type="submit" class="btn btn-danger" >Delete</button>
@@ -90,8 +97,6 @@ require_once __DIR__ . '/inc/_header.php';
 
                                                                                         
                                                                                     </form>
-                                                                                    
-                                                                                    
                                                                                     </td>
                                                                                     
                                                                                     

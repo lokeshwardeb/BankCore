@@ -19,6 +19,12 @@ $Routes = [
     "/create_new_account" => __DIR__ . "/views/pages/view.create_new_account.php",
     "/manage_accounts" => __DIR__ . "/views/pages/view.manage_accounts.php",
     "/view_ac_profile" => __DIR__ . "/views/pages/view.account_profile.php",
+    "/deposit" => __DIR__ . "/views/pages/view.deposit.php",
+    "/deposit_interface" => __DIR__ . "/views/pages/view.deposit_interface.php",
+    "/withdraw" => __DIR__ . "/views/pages/view.withdraw.php",
+    "/withdraw_interface" => __DIR__ . "/views/pages/view.withdraw_interface.php",
+    "/transfer" => __DIR__ . "/views/pages/view.transfer.php",
+    "/transfer_interface" => __DIR__ . "/views/pages/view.transfer_interface.php",
 
 
     // "/" => __DIR__ . "/views/pages/view.login.php",

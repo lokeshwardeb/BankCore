@@ -58,6 +58,26 @@
                 </ul>
             </div>
         </li>
+        <li class="mb-1"> <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                data-bs-toggle="collapse" data-bs-target="#transactions" aria-expanded="false">
+                Transactions
+            </button>
+            <div class="collapse" id="transactions">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li><a href="/deposit" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Deposit To an account</a></li>
+                    <li><a href="/withdraw" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Withdraw from an accout</a>
+                    </li>
+                    <li><a href="/manage_accounts" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Transfer Money from one account to another account</a>
+                    </li>
+                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Verify Customer KYC</a>
+                    </li>
+                    <!-- <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Shipped</a>
+                    </li>
+                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Returned</a>
+                    </li> -->
+                </ul>
+            </div>
+        </li>
         <li class="border-top my-3"></li>
         
         
