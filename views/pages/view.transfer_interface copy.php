@@ -80,11 +80,9 @@ $get_ac_number = $_GET['get_ac_number'];
                                     if ($get_cus->num_rows > 0) {
                                         while ($row_cus = $get_cus->fetch_assoc()) {
                                             $cus_name = $row_cus['cus_name'];
-                                            $cus_image_name = $row_cus['cus_image_name'];
                                         }
                                     } else {
                                         $cus_name = '';
-                                        $cus_image_name = '';
                                     }
                                 }
 
@@ -96,7 +94,7 @@ $get_ac_number = $_GET['get_ac_number'];
                             <div class="container">
                                 <div class="msg page m-4 rounded-4 fs-5 fw-bold fst-italic p-4">
                                     Transfer <span class="text-primary">Interface</span>
-
+                                    
                                 </div>
                                 <div class="msg page m-4 rounded-4 fs-6 fw-bold fst-italic p-4">
                                     Account Holder <span class="text-primary">Profile</span>
@@ -104,65 +102,47 @@ $get_ac_number = $_GET['get_ac_number'];
                             </div>
                         </div>
 
-
-
                         <div class="ac_profiles_main">
                             <div class="container">
                                 <div class="ac_profiles page m-4 p-4 rounded-4">
-
                                     <div class="profile_information">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="profile_info">
-                                                    <div>Account Number : <span><?php echo $get_ac_number; ?></span></div>
-                                                    <div>Name : <span><?php echo $cus_name; ?></span></div>
-                                                    <div>Current Balance : <span><?php echo $get_balance; ?></span></div>
-                                                    <div>Account Status : <span><?php echo $ac_status; ?></span></div>
-                                                    <div>Account Type : <span><?php
+                                        <div class="profile_info">
+                                            <div>Account Number : <span><?php echo $get_ac_number; ?></span></div>
+                                            <div>Name : <span><?php echo $cus_name; ?></span></div>
+                                            <div>Current Balance : <span><?php echo $get_balance; ?></span></div>
+                                            <div>Account Status : <span><?php echo $ac_status; ?></span></div>
+                                            <div>Account Type : <span><?php
 
-                                                                                if ($ac_type == 'student_account') {
-                                                                                    echo 'Student Account';
-                                                                                } elseif ($ac_type == 'savings_account') {
-                                                                                    echo 'Savings Account';
-                                                                                } elseif ($ac_type == 'business_account') {
-                                                                                    echo 'Business Account';
-                                                                                }
+                                                                        if ($ac_type == 'student_account') {
+                                                                            echo 'Student Account';
+                                                                        } elseif ($ac_type == 'savings_account') {
+                                                                            echo 'Savings Account';
+                                                                        } elseif ($ac_type == 'business_account') {
+                                                                            echo 'Business Account';
+                                                                        }
 
-                                                                                ?></span></div>
+                                                                        ?></span></div>
 
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <?php
-                                                if ($cus_image_name != '') {
-                                                    echo '
-                                                               <img class="img-fluid" src="/assets/img/client_image/' . $cus_image_name . '" alt="">
-                                                        ';
-                                                } else {
-                                                    echo '<div>No Image Found </div>';
-                                                }
-                                                ?>
-
-                                            </div>
                                         </div>
+
 
                                         <div class="customer_form">
                                             <div class="container">
                                                 <div class="form page m-4 p-4 rounded-4">
                                                     <form action="" method="post">
-
-                                                        <input type="hidden" class="form-control" value="<?php echo $get_ac_number; ?>" name="from_ac" id="from_ac">
-                                                        <input type="hidden" class="form-control" value="<?php echo $get_cus_id; ?>" name="cus_id" id="cus_id">
-
+                                                        
+                                                    <input type="hidden" class="form-control" value="<?php echo $get_ac_number; ?>" name="from_ac" id="from_ac">
+                                                    <input type="hidden" class="form-control" value="<?php echo $get_cus_id; ?>" name="cus_id" id="cus_id">
+                                                        
                                                         <div class="mb-3 pt-2">
                                                             <label for="to_ac">Please enter the receiver's account number to transfer the money</label>
-                                                            <input type="number" class="form-control" name="to_ac" id="to_ac">
+                                                            <input type="number" class="form-control"  name="to_ac" id="to_ac">
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="amount">Please enter the ammount to transfer</label>
-                                                            <input type="number" class="form-control" name="amount" id="amount">
+                                                            <input type="number" class="form-control"  name="amount" id="amount">
                                                         </div>
-
+                                                
                                                         <div class="mb-3">
                                                             <button type="submit" name="make_transfer" class="btn btn-outline-primary mt-4">Make Transfer</button>
                                                         </div>
@@ -171,14 +151,7 @@ $get_ac_number = $_GET['get_ac_number'];
                                                 </div>
                                             </div>
                                         </div>
-
-
-
-
-
                                     </div>
-
-                                   
                                 </div>
                             </div>
                         </div>

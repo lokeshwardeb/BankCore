@@ -10,7 +10,7 @@ require_once __DIR__ . '/../../controllers/controllers.php';
 
 $controllers = new controllers;
 
-// $controllers->check_login();
+$controllers->check_login();
 
 // $controllers->admin_register();
 
@@ -22,7 +22,7 @@ $controllers = new controllers;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>BankCore - Secure. Scalable. Smarter Banking.</title>
 
         <!-- bootstrap css files -->
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
@@ -74,6 +74,11 @@ $controllers = new controllers;
 
                     <div class="mb-3">
                         <button type="submit" name="register_admin" class="btn btn-outline-primary mt-4">Register</button>
+                    </div>
+
+
+                    <div class="mb-3 mt-4">
+                        <a href="/dashboard">Go Back to Dashboard</a>
                     </div>
 
                 </form>

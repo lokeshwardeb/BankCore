@@ -41,7 +41,7 @@ if(isset($_SESSION[$session_name])){
                         </div>
                         <div class="welcome_msg">
                             <div class="container">
-                                <div class="msg page m-4 rounded-4 fs-3 fw-bold fstitalic p-4">
+                                <div class="msg page m-4 rounded-4 fs-5 fw-bold fst-italic p-4">
                                     Deposit Money To The Customer <span class="text-primary">Account</span>
                                     <!-- <?php echo $session_name ?> -->
                                 </div>

@@ -1,4 +1,4 @@
-<div class="flex-shrink-0 p-3" style="width: 280px;"> <a href="/"
+<div id="sidebar_main_component" class="flex-shrink-0 p-3" style="width: 280px;"> <a href="/"
         class="d-flex align-items-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom"> <svg
             class="bi pe-none me-2" width="30" height="24" aria-hidden="true">
             <use xlink:href="#bootstrap"></use>
@@ -26,12 +26,8 @@
                     <li><a href="/add_new_customer" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Add New Customer</a></li>
                     <li><a href="/manage_customers" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Manage Customers</a>
                     </li>
-                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Verify Customer KYC</a>
-                    </li>
-                    <!-- <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Shipped</a>
-                    </li>
-                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Returned</a>
-                    </li> -->
+                 
+           
                 </ul>
             </div>
         </li>
@@ -73,6 +69,7 @@
             
             <div class="collapse" id="account-collapse">
                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li><a href="/admin_register" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Register a new admin</a></li>
                     <li><a href="/logout" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Log
                             out</a></li>
                 </ul>
@@ -83,4 +80,4 @@
             <div class="username text-primary fw-bold p-4 pt-0 pb-3"><?php echo $_SESSION['admin_username'] ?></div>
         </li>
     </ul>
-</div>0
+</div>

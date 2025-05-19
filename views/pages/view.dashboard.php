@@ -27,7 +27,7 @@ require_once __DIR__ . '/inc/_header.php';
                     <div class="col-md-10">
                         <div class="welcome_msg">
                             <div class="container">
-                                <div class="msg page m-4 fs-5 p-4">
+                                <div class="msg page m-4 rounded-4 fs-5 p-4">
                                     Welcome back, <span class="text-primary"><?php echo $_SESSION['admin_username'] ?></span>
                                 </div>
                             </div>
