@@ -53,15 +53,15 @@ body{
     border: none !important;
   } */
 
-  table{
+  /* table{
     border: 1px solid black;
     width: 50%;
-  }
+  } */
   /* th{
     border: 1px solid black;
   } */
 
-  tr{
+  /* tr{
     border: 1px solid black;
   }
 
@@ -72,7 +72,7 @@ body{
     border: none;
     border-bottom: 2px solid black;
     outline: none;
-  }
+  } */
 
     .hover_table{
     transition: 500ms linear;
@@ -81,4 +81,8 @@ body{
     transition: 300ms linear;
     background-color: #0D6EFD !important;
     color: white !important;
+  }
+
+  .datatable_info_table_length {
+    width: 5vw !important;
   }

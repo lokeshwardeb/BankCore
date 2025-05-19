@@ -21,8 +21,12 @@ $controllers->check_login();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BankCore - Secure. Scalable. Smarter Banking.</title>
     <!-- bootstrap css files -->
-    <!-- <link rel="stylesheet" href="/assets/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
 
+    <!-- custom css files -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+
+    <link rel="stylesheet" href="/assets/css/sidebars.css">
 
     
     <script src="/assets/js/jquery_3.7.1_min.js"></script>
@@ -33,19 +37,8 @@ $controllers->check_login();
         <!-- datatables css files -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css">
 
-    <!-- <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.bootstrap5.css"> -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.bootstrap5.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/3.2.0/css/buttons.bootstrap5.css">
-
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/css/bootstrap.min.css"> -->
-
-    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">    <!-- custom css files -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/3.2.0/css/buttons.bootstrap5.css">
-
-    <!-- <link rel="stylesheet" href="/assets/css/style.css"> -->
-
-    <link rel="stylesheet" href="/assets/css/sidebars.css">
-
-      <link rel="stylesheet" href="/assets/css/style.css">
 
 
 
@@ -53,13 +46,17 @@ $controllers->check_login();
     <script src="/assets/js/alert.js"></script>
 
     
+    <!-- <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
+    <script src="https://cdn.datatables.net/2.1.8/js/dataTables.bootstrap5.js"></script>
+
+
+    <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
+    <script src="https://cdn.datatables.net/2.1.8/js/dataTables.bootstrap5.js"></script> -->
 
 
         <!-- datatable js -->
-         <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
     <script src="https://cdn.datatables.net/2.1.8/js/dataTables.bootstrap5.js"></script>
-
 
     <!-- datatable button and features js -->
       <!-- DataTables Buttons extension for export functionality -->
@@ -69,14 +66,8 @@ $controllers->check_login();
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
 
-<!-- 
-<style>
-      .hover_table:hover{
-    transition: 300ms linear;
-    background-color: #0D6EFD !important;
-    color: white !important;
-  }
-</style> -->
+
+
 </head>
 
 <body>

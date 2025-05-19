@@ -53,9 +53,10 @@ require_once __DIR__ . '/inc/_header.php';
                                                         <thead>
                                                             <tr>
                                                                 <th scope="col">#</th>
-                                                                <th scope="col">Employee name</th>
-                                                                <th scope="col">Age</th>
-                                                                <th scope="col">Mobile No</th>
+                                                                <th scope="col">Account Number</th>
+                                                                <th scope="col">Current Balance</th>
+                                                                <th scope="col">Account Type</th>
+                                                                <th scope="col">Action</th>
                                                                 <th scope="col">Action</th>
                                                             
                                                             </tr>
@@ -63,7 +64,7 @@ require_once __DIR__ . '/inc/_header.php';
                                                         <tbody>
                                                             <?php
 
-                                                            $result_get_cus_data = $controllers->get_data("customers");
+                                                            $result_get_cus_data = $controllers->get_data("accounts");
 
                                                             if ($result_get_cus_data) {
                                                                 if ($result_get_cus_data->num_rows > 0) {
@@ -75,24 +76,27 @@ require_once __DIR__ . '/inc/_header.php';
                                                                         echo '
                                                                                 <tr class="hover_table" >
                                                                                     <th scope="row">'. $sl_no .'</th>
-                                                                                    <td>'. $row_cus_data['cus_name'] .'</td>
-                                                                                    <td>'. $row_cus_data['cus_email'] .'</td>
-                                                                                    <td>'. $row_cus_data['cus_phone'] .'</td>
-                                                                                    <td> 
+                                                                                    <td>'. $row_cus_data['account_number'] .'</td>
+                                                                                    <td>'. $row_cus_data['balance'] .'</td>
+                                                                                    <td>'. $row_cus_data['account_type'] .'</td>
                                                                                     
-                                                                                    <a href="edit_customer?get_cus_id='. $row_cus_data['cus_id'] .'"> <button class="btn btn-success" >Edit</button></a>
+                                                                                    
+                                                                                    <td>
+                                                                                        <a href="edit_customer?get_cus_id='. $row_cus_data['cus_id'] .'"> <button class="btn btn-success" >Edit</button></a>
+                                                                                    </td>
 
-                                                                                    <form action="" method="post">
-                                                                                        <input type="hidden" name="delete_get_cus_id" value="'. $row_cus_data['cus_id'] .'">
-
-                                                                                        <button name="delete_customer" type="submit" class="btn btn-danger" >Delete</button>
+                                                                                    <td>
+                                                                                             <a href="view_ac_profile?get_ac_number='. $row_cus_data['account_number'] .'"> <button class="btn btn-dark" >View Profile</button></a>
 
 
                                                                                         
                                                                                     </form>
-                                                                                    
-                                                                                    
                                                                                     </td>
+
+                                                                                    
+                                                                                    
+                                                                                    
+                                                                                    
                                                                                     
                                                                                     
                                                                                     
@@ -105,7 +109,16 @@ require_once __DIR__ . '/inc/_header.php';
                                                             }
 
 // <a href="'. $row_cus_data['cus_id'] .'"> <button class="btn btn-danger" >Delete</button></a>
+// <td>
+//                                                                                         <form action="" method="post">
+//                                                                                         <input type="hidden" name="delete_get_cus_id" value="'. $row_cus_data['cus_id'] .'">
 
+//                                                                                         <button name="delete_customer" type="submit" class="btn btn-danger" >Delete</button>
+
+
+                                                                                        
+//                                                                                     </form>
+//                                                                                     </td>
                                                             ?>
                                                         </tbody>
                                                     </table>

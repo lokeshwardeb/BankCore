@@ -5,6 +5,15 @@ require_once __DIR__ . '/../../controllers/controllers.php';
 
 $controllers = new controllers;
 
+        if(isset($_SESSION['admin_username'])){
+            echo '
+                <script>
+                    window.location.href = "/dashboard";
+                </script>
+            ';
+        }
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

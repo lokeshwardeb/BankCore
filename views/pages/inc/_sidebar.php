@@ -29,7 +29,25 @@
             <div class="collapse" id="orders-collapse">
                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                     <li><a href="/add_new_customer" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Add New Customer</a></li>
-                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Manage Customers</a>
+                    <li><a href="/manage_customers" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Manage Customers</a>
+                    </li>
+                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Verify Customer KYC</a>
+                    </li>
+                    <!-- <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Shipped</a>
+                    </li>
+                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Returned</a>
+                    </li> -->
+                </ul>
+            </div>
+        </li>
+        <li class="mb-1"> <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                data-bs-toggle="collapse" data-bs-target="#ac_management" aria-expanded="false">
+                Account Management
+            </button>
+            <div class="collapse" id="ac_management">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li><a href="/create_new_account" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Create new account</a></li>
+                    <li><a href="/manage_accounts" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Manage Account</a>
                     </li>
                     <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Verify Customer KYC</a>
                     </li>
@@ -66,4 +84,4 @@
             <div class="username text-primary fw-bold p-4 pt-0 pb-3"><?php echo $_SESSION['admin_username'] ?></div>
         </li>
     </ul>
-</div>
+</div>0

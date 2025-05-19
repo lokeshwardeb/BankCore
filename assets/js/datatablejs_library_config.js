@@ -55,9 +55,11 @@ $(document).ready(function () {
         initComplete: function () {
             // Add the "btn" class to all DataTables buttons
             $('.dt-button').addClass('btn btn-outline-primary '); // Replace with any Bootstrap button class
-            $('.dt-search').addClass('mb-4 mt-4 '); // Replace with any Bootstrap button class
+            $('.dt-search').addClass('mb-4 mt-4 w-25 float-end '); // Replace with any Bootstrap button class
             $('.dt-paging').addClass('mb-4 mt-4 '); // Replace with any Bootstrap button class
             $('.dt-length').addClass('mb-4 '); // Replace with any Bootstrap button class
+            $('#dt-length-0').addClass('mb-2 mt-5 w-25 '); // Replace with any Bootstrap button class
+            $('.dt-info').addClass('mt-4 '); // Replace with any Bootstrap button class
         }
     });
 });

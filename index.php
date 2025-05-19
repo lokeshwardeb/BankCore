@@ -15,6 +15,10 @@ $Routes = [
     "/dashboard" => __DIR__ . "/views/pages/view.dashboard.php",
     "/add_new_customer" => __DIR__ . "/views/pages/view.add_new_customer.php",
     "/manage_customers" => __DIR__ . "/views/pages/view.manage_customers.php",
+    "/edit_customer" => __DIR__ . "/views/pages/view.edit_customer.php",
+    "/create_new_account" => __DIR__ . "/views/pages/view.create_new_account.php",
+    "/manage_accounts" => __DIR__ . "/views/pages/view.manage_accounts.php",
+    "/view_ac_profile" => __DIR__ . "/views/pages/view.account_profile.php",
 
 
     // "/" => __DIR__ . "/views/pages/view.login.php",
