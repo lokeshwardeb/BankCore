@@ -13,7 +13,7 @@ $(document).ready(function () {
         // ],
 
         lengthMenu: [5, 10, 25, 50, 100], // Options for number of entries per page
-        pageLength: 10, // Default number of entries per page
+        pageLength: 5, // Default number of entries per page
 
         buttons: [
             {

@@ -11,14 +11,9 @@
             </button>
             <div class="collapse" id="dashboard-collapse">
                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Overview</a>
+                    <li><a href="/dashboard" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Overview</a>
                     </li>
-                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Weekly</a>
-                    </li>
-                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Monthly</a>
-                    </li>
-                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Annually</a>
-                    </li>
+                    
                 </ul>
             </div>
         </li>
@@ -49,12 +44,7 @@
                     <li><a href="/create_new_account" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Create new account</a></li>
                     <li><a href="/manage_accounts" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Manage Account</a>
                     </li>
-                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Verify Customer KYC</a>
-                    </li>
-                    <!-- <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Shipped</a>
-                    </li>
-                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Returned</a>
-                    </li> -->
+                   
                 </ul>
             </div>
         </li>
@@ -67,14 +57,9 @@
                     <li><a href="/deposit" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Deposit To an account</a></li>
                     <li><a href="/withdraw" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Withdraw from an accout</a>
                     </li>
-                    <li><a href="/manage_accounts" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Transfer Money from one account to another account</a>
+                    <li><a href="/transfer" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Transfer Money from one account to another account</a>
                     </li>
-                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Verify Customer KYC</a>
-                    </li>
-                    <!-- <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Shipped</a>
-                    </li>
-                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Returned</a>
-                    </li> -->
+                    
                 </ul>
             </div>
         </li>
@@ -83,17 +68,11 @@
         
         <li class="mb-1"> <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
                 data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
-                Account
+                Admin Account
             </button>
             
             <div class="collapse" id="account-collapse">
                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">New...</a>
-                    </li>
-                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Profile</a>
-                    </li>
-                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Settings</a>
-                    </li>
                     <li><a href="/logout" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Log
                             out</a></li>
                 </ul>

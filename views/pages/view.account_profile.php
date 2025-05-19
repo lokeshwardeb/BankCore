@@ -70,9 +70,11 @@ $get_ac_number = $_GET['get_ac_number'];
                                         if($get_cus->num_rows > 0){
                                             while($row_cus = $get_cus->fetch_assoc()){
                                                 $cus_name = $row_cus['cus_name'];
+                                                $cus_image_name = $row_cus['cus_image_name'];
                                             }
                                         }else{
                                             $cus_name = '';
+                                            $cus_image_name = '';
                                         }
                                       }
 
@@ -92,7 +94,9 @@ $get_ac_number = $_GET['get_ac_number'];
                             <div class="container">
                                 <div class="ac_profiles page m-4 p-4 rounded-4">
                                     <div class="profile_information">
-                                        <div class="profile_info">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="profile_info">
                                             <div>Account Number : <span><?php echo $get_ac_number; ?></span></div>
                                             <div>Name : <span><?php echo $cus_name; ?></span></div>
                                             <div>Current Balance : <span><?php echo $get_balance; ?></span></div>
@@ -110,8 +114,22 @@ $get_ac_number = $_GET['get_ac_number'];
                                             ?></span></div>
                                             
                                         </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <img class="img-fluid" src="/assets/img/client_image/<?php echo $cus_image_name; ?>" alt="">
+                                            </div>
+                                        </div>
 
-                                        <div class="close_ac_section mt-4">
+                                        <div class="row mt-4">
+                                            <div class="col-md-4">
+                                                <div class="print_statemanets">
+                                            <a href="/transaction_statements?get_ac_number=<?php echo $get_ac_number; ?>">
+                                                <button class="btn btn-dark">Print Transaction Statements</button>
+                                            </a>
+                                        </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="close_ac_section ">
                                             <form action="" method="post">
                                                 <input type="hidden" value="<?php echo $get_ac_number ?>" name="ac_number">
                                                 <button type="submit" name="close_ac" <?php
@@ -123,6 +141,13 @@ $get_ac_number = $_GET['get_ac_number'];
                                                 ?> class="btn btn-danger">Close Account</button>
                                             </form>
                                         </div>
+                                            </div>
+                                        </div>
+
+                                        
+
+
+                                        
                                     </div>
                                 </div>
                             </div>

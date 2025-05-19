@@ -43,7 +43,7 @@ require_once __DIR__ . '/inc/_header.php';
                         <div class="customer_form">
                             <div class="container">
                                 <div class="form page m-4 p-4 rounded-4">
-                                    <form action="" method="post">
+                                    <form action="" enctype="multipart/form-data" method="post">
                                         <div class="mb-3 pt-2">
                                             <label for="cus_name">Customer Name</label>
                                             <input type="text" class="form-control" name="cus_name" id="cus_name">
@@ -56,9 +56,13 @@ require_once __DIR__ . '/inc/_header.php';
                                             <label for="cus_phone">Customer Phone no</label>
                                             <input type="number" class="form-control" name="cus_phone" id="cus_phone">
                                         </div>
+                                        <div class="mb-3">
+                                            <label for="cus_image">Customer Image</label>
+                                            <input type="file" class="form-control" name="cus_image" id="cus_image">
+                                        </div>
 
                                         <div class="mb-3">
-                                            <button type="submit" name="add_new_customer" class="btn btn-outline-primary mt-4">Login</button>
+                                            <button type="submit" name="add_new_customer" class="btn btn-outline-primary mt-4">Add new customer</button>
                                         </div>
 
                                     </form>

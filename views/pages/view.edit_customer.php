@@ -77,7 +77,7 @@ $get_cus_id = $_GET['get_cus_id'];
                         <div class="customer_form">
                             <div class="container">
                                 <div class="form page m-4 p-4 rounded-4">
-                                    <form action="" method="post">
+                                    <form action="" enctype="multipart/form-data" method="post">
                                         <div class="mb-3 pt-2">
                                             <label for="cus_name">Customer Name</label>
                                             <input type="text" class="form-control" value="<?php echo $get_cus_name; ?>" name="cus_name" id="cus_name">
@@ -89,6 +89,10 @@ $get_cus_id = $_GET['get_cus_id'];
                                         <div class="mb-3">
                                             <label for="cus_phone">Customer Phone no</label>
                                             <input type="number" class="form-control" value="<?php echo $get_cus_phone; ?>" name="cus_phone" id="cus_phone">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="cus_phone">Customer Image</label>
+                                            <input type="file" class="form-control" value="<?php echo $get_cus_phone; ?>" name="cus_image" id="cus_image">
                                         </div>
 
                                         <div class="mb-3">

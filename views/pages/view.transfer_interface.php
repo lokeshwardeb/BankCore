@@ -144,7 +144,7 @@ $get_ac_number = $_GET['get_ac_number'];
                                                         </div>
                                                 
                                                         <div class="mb-3">
-                                                            <button type="submit" name="make_transfer" class="btn btn-outline-primary mt-4">Make Withdraw</button>
+                                                            <button type="submit" name="make_transfer" class="btn btn-outline-primary mt-4">Make Transfer</button>
                                                         </div>
 
                                                     </form>

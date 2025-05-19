@@ -25,6 +25,7 @@ $Routes = [
     "/withdraw_interface" => __DIR__ . "/views/pages/view.withdraw_interface.php",
     "/transfer" => __DIR__ . "/views/pages/view.transfer.php",
     "/transfer_interface" => __DIR__ . "/views/pages/view.transfer_interface.php",
+    "/transaction_statements" => __DIR__ . "/views/pages/view.transaction_statements.php",
 
 
     // "/" => __DIR__ . "/views/pages/view.login.php",

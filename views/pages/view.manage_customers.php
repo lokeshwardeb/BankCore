@@ -53,6 +53,7 @@ require_once __DIR__ . '/inc/_header.php';
                                                         <thead>
                                                             <tr>
                                                                 <th scope="col">#</th>
+                                                                <th scope="col">Customer ID</th>
                                                                 <th scope="col">Customer name</th>
                                                                 <th scope="col">Email</th>
                                                                 <th scope="col">Mobile No</th>
@@ -76,6 +77,7 @@ require_once __DIR__ . '/inc/_header.php';
                                                                         echo '
                                                                                 <tr class="hover_table" >
                                                                                     <th scope="row">'. $sl_no .'</th>
+                                                                                    <td>'. $row_cus_data['cus_id'] .'</td>
                                                                                     <td>'. $row_cus_data['cus_name'] .'</td>
                                                                                     <td>'. $row_cus_data['cus_email'] .'</td>
                                                                                     <td>'. $row_cus_data['cus_phone'] .'</td>
